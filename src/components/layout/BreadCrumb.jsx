@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 function BreadCrumb({ title }) {
-  const router = useRouter();
+  const Router = useRouter();
 
   return (
     <div className=" rounded shadow-lg w-auto m-2  bg-light d-flex justify-content-between align-items-center">
@@ -23,7 +23,7 @@ function BreadCrumb({ title }) {
       <div className="px-2 mt-2">
         <Link
           href="#"
-          className="text-decoration-none p-3 text-black" onClick={()=> router.back()}
+          className="text-decoration-none p-3 text-black" onClick={() => Router.back()}
         >
           <BiLeftArrowCircle size={35} />
         </Link>

@@ -3,12 +3,12 @@ import { getCartItems, removeFromCart, updateCartItems } from '@/utils/cardItems
 import Cookies from 'js-cookie';
 import Head from 'next/head'
 import Image from 'next/image';
-import { Router } from 'next/router';
+import { router } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-hot-toast';
 import { BiRupee } from 'react-icons/bi';
 
-function Cart({ product }) {
+function Cart() {
     const [cart, setCart] = useState(getCartItems());
 
     const [yourCart, setYourCart] = useState({
@@ -50,7 +50,7 @@ function Cart({ product }) {
         let total = 0;
         let gstAmount = 0;
         cart.map((item) => {
-            total += item?.price * item?.qty
+            total += item.price * item.qty
         })
         gstAmount = total * 18 / 100;
         setYourCart({ ...yourCart, subTotal: total, gstAmount: gstAmount, grandTotal: total + gstAmount })
@@ -58,7 +58,7 @@ function Cart({ product }) {
 
     const checkoutHandler = () => {
         Cookies.set('yourCart', JSON.stringify(yourCart))//here we use cookies to sote data and use it anywhere
-        Router.push('/checkout')
+        router.push('/checkout')
     }
     return (
         <>
@@ -105,64 +105,65 @@ function Cart({ product }) {
                                     <td className='d-flex text-center justify-content-between'>
                                         <div className='d-flex align-items-center text-center'>
                                             <BiRupee size={21} />
-                                            {(item?.price * item.qty).toFixed(2)}
+                                            {(item?.price * item?.qty).toFixed(2)}
                                         </div>
                                         <button className='btn btn-sm btn-danger ' onClick={() => removeHandler(item?.id)}>Remove</button>
                                     </td>
                                 </tr>
                             )
-                        }) : <tr><td className='text-center text-danger fw-bold fs-5' colSpan={4}>Empty Cart</td></tr>}
+                        }) : <tr>
+                            <td className='text-center text-danger fw-bold fs-5' colSpan={4}>Empty Cart</td>
+                        </tr>}
+                        {(cart?.length > 0) &&
+                            <>
+                                <tr>
+                                    <td></td>
+                                    <th className='border-bottom ' colSpan={2}>Subtotal</th>
+                                    <th className='border-bottom '>
+                                        <div className='d-flex align-items-center text-center'>
+                                            <BiRupee size={18} />{yourCart?.subTotal?.toFixed(2)}
+                                        </div>
+                                    </th>
 
-                        <tr>
-                            <td></td>
-                            <th className='border-bottom ' colSpan={2}>Subtotal</th>
-                            <th className='border-bottom '>
-                                <div className='d-flex align-items-center text-center'>
-                                    <BiRupee size={18} />{yourCart?.subTotal?.toFixed(2)}
-                                </div>
-                            </th>
+                                </tr>
 
-                        </tr>
+                                <tr>
+                                    <td></td>
+                                    <th className='border-bottom ' colSpan={2}>18% GST</th>
+                                    <th className='border-bottom '>
+                                        <div className='d-flex align-items-center text-center'>
+                                            <BiRupee size={18} />{yourCart?.gstAmount?.toFixed(2)}
+                                        </div>
+                                    </th>
+                                </tr>
 
-                        <tr>
-                            <td></td>
-                            <th className='border-bottom ' colSpan={2}>18% GST</th>
-                            <th className='border-bottom '>
-                                <div className='d-flex align-items-center text-center'>
-                                    <BiRupee size={18} />{yourCart?.gstAmount?.toFixed(2)}
-                                </div>
-                            </th>
+                                <tr>
+                                    <td></td>
+                                    <th className='border-bottom ' colSpan={2}>Shipping Charge</th>
+                                    <th className='border-bottom '>
+                                        Free
+                                    </th>
+                                </tr>
 
-                        </tr>
+                                <tr>
+                                    <td></td>
+                                    <th className='border-bottom ' colSpan={2}>GrandTotal</th>
+                                    <th className='border-bottom '>
+                                        <div className='d-flex align-items-center text-center'>
+                                            <BiRupee size={18} />{yourCart?.grandTotal?.toFixed(2)}
+                                        </div>
+                                    </th>
+                                </tr>
 
-                        <tr>
-                            <td></td>
-                            <th className='border-bottom ' colSpan={2}>Shipping Charge</th>
-                            <th className='border-bottom '>
-                                Free
-                            </th>
-
-                        </tr>
-
-                        <tr>
-                            <td></td>
-                            <th className='border-bottom ' colSpan={2}>GrandTotal</th>
-                            <th className='border-bottom '>
-                                <div className='d-flex align-items-center text-center'>
-                                    <BiRupee size={18} />{yourCart?.grandTotal?.toFixed(2)}
-                                </div>
-                            </th>
-
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th className='border-bottom ' colSpan={3}>
-                                <button className='btn btn-sm btn-primary float-end' onClick={() => checkoutHandler()}>
-                                    CheckOut
-                                </button>
-                            </th>
-
-                        </tr>
+                                <tr>
+                                    <td></td>
+                                    <th className='border-bottom ' colSpan={3}>
+                                        <button className='btn btn-sm btn-primary float-end' onClick={() => checkoutHandler()}>
+                                            CheckOut
+                                        </button>
+                                    </th>
+                                </tr>
+                            </>}
                     </tbody>
                 </table>
 

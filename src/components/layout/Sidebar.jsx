@@ -32,8 +32,8 @@ function Sidebar() {
               href={`/category/${category}`}
               className="text-decoration-none"
             >
-              <li className="list-group-item bg-pri list-group-item-action  text-capitalize d-flex align-items-center">
-                <BsDashCircle size={26} className="m-2" />
+              <li className="list-group-item bg-pri list-group-item-action  text-capitalize d-flex flex-row align-items-center">
+                <BsDashCircle size={15} className="m-2 " />
                 {category}
               </li>
             </Link>
