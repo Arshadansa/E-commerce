@@ -41,7 +41,9 @@ function ProductCard({ product }) {
             >
               <BsCart4 size={22} />
             </button>
-            <button className="btn btn-success btn-sm">Buy</button>
+            < Link href="/cart">
+              <button className="btn btn-success btn-sm">Buy</button>
+            </Link>
           </div>
         </div>
       </div>

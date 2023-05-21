@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { BiRupee } from "react-icons/bi";
 import { toast } from "react-hot-toast";
 import { addToCart, getCartItems } from "@/utils/cardItems";
+import Link from "next/link";
 
 function SingleProduct({ product }) {
   const [qty, setQty] = useState(1);
@@ -16,15 +17,17 @@ function SingleProduct({ product }) {
       <main>
         <BreadCrumb title={"Product"} />
         <div className="row mt-3  rounded bg-light align-items-start shadow ">
-          <div className="col-lg-6">
+          <div className="col-lg-5">
             <div className="p-2 pt-3">
-              <Image
-                className="border"
-                src={product?.thumbnail}
-                alt={product?.title}
-                width={450}
-                height={400}
-              />
+              <Link href="/cart">
+                <Image
+                  className="border"
+                  src={product?.thumbnail}
+                  alt={product?.title}
+                  width={490}
+                  height={450}
+                />
+              </Link>
             </div>
           </div>
           <div className="col-lg-6">
@@ -74,9 +77,12 @@ function SingleProduct({ product }) {
                   >
                     ADD To Cart
                   </button>
-                  <button type="button" className="btn btn-success pt-2 pb-2 px-3 fw-semibold">
-                    Buy Now
-                  </button>
+                  <Link href="/cart">
+
+                    <button type="button" className="btn btn-success pt-2 pb-2 px-3 fw-semibold">
+                      Buy Now
+                    </button>
+                  </Link>
                 </div>
               </div>
 

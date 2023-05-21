@@ -9,7 +9,7 @@ function BreadCrumb({ title }) {
   const Router = useRouter();
 
   return (
-    <div className=" rounded shadow-lg w-auto m-2  bg-light d-flex justify-content-between align-items-center">
+    <div className=" rounded shadow w-auto   d-flex justify-content-between align-items-center">
       <div className="d-flex align-items-center gap-1">
         <div className="mx-3 d-flex align-items-center">
           <Link href="/" className="text-decoration-none text-black mb-1">

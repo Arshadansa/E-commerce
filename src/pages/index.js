@@ -16,9 +16,9 @@ export default function Home({ products }) {
         />
       </Head>
       <main>
-        <div>
+        {/* <div>
           <Banner />
-        </div>
+        </div> */}
         <div className="my-2  bg-light">
           <h4 className="text-center p-2 text-uppercase">Products</h4>
         </div>

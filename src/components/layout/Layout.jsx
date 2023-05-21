@@ -8,16 +8,20 @@ function Layout({ children }) {
   return (
     <>
       <Header />
+
+      <div className="">
+        <CarouselBanner />
+      </div>
       <div className="container-md mt-4">
-        <div className="mb-5">
-          <CarouselBanner />
-        </div>
+
         <div className="row g-4">
-          <div className="col-12 col-md-9 ">{children}</div>
-          <div className="col-md-3 d-none d-md-block h-100 ">
+
+          <div className="col-md-12 d-none d-md-block  ">
             <Sidebar />
           </div>
+
         </div>
+        <div className="">{children}</div>
       </div>
     </>
   );

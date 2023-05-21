@@ -5,15 +5,15 @@ import React from "react";
 
 function CategoryProducts({ products }) {
   const router = useRouter();
-  const categoryNam = router?.query?.slug;
+  const categoryName = router?.query?.slug;
 
   return (
     <>
       <head>
-        <title>{categoryNam}</title>
+        <title>{categoryName}</title>
       </head>
       <main className="mb-4">
-        <BreadCrumb title={`${categoryNam?.toLocaleUpperCase()}-Products`} />
+        <BreadCrumb title={`${categoryName?.toLocaleUpperCase()}-Products`} />
         <div className="row">
           {products &&
             products.map((elements) => {

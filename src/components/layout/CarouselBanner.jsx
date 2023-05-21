@@ -11,7 +11,7 @@ function CarouselBanner() {
       <div class="carousel-inner">
         <div class="carousel-item active">
           <Image
-            src="/image/pexels_1.jpg"
+            src="/image/pexels-tim.jpg"
             className="d-block w-100"
             width={800}
             height={422}
@@ -20,7 +20,7 @@ function CarouselBanner() {
         </div>
         <div class="carousel-item">
           <Image
-            src="/image/istockphoto.jpg"
+            src="/image/pexels-sound.jpg"
             className="d-block w-100"
             width={800}
             height={422}

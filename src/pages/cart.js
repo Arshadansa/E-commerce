@@ -66,8 +66,8 @@ function Cart() {
                 <title>Your Cart</title>
             </Head>
             <BreadCrumb title={'Your Cart'} />
-            <div className='table-responsive mt-4'>
-                <table className='table table-borderless'>
+            <div className='table-responsive mt-2 border rounded shadow-lg p-4 mb-4' >
+                <table className='table table-borderless '>
                     <thead>
                         <tr className='border-bottom '>
                             <th scope='col'>Item </th>
