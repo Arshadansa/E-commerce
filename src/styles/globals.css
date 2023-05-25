@@ -4,3 +4,6 @@
 .navbar-bg {
   background-color: #ff2323 !important;
 }
+.image-fit {
+  object-fit: scale-down;
+}

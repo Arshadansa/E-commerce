@@ -12,7 +12,7 @@ function CarouselBanner() {
         <div class="carousel-item active">
           <Image
             src="/image/pexels-tim.jpg"
-            className="d-block w-100 "
+            className="d-block w-100"
             width={800}
             height={422}
             alt="banner slide 1"
