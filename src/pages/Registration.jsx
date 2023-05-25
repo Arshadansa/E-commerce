@@ -18,8 +18,8 @@ function Registration() {
         const password = e.target[2].value;
 
         try {
-
             const res = await createUserWithEmailAndPassword(auth, email, password)
+
             await setDoc(doc(db, "users", res.user.uid), {
                 uid: res.user.uid,
                 name,
@@ -89,9 +89,11 @@ function Registration() {
 
                                                                 <div className="d-flex justify-content-start mx-2 ">
                                                                     <button type="submit" className="btn btn-dark px-5 btn-md">Register</button>
+                                                                    <button type="reset" class="btn btn-dark m-1 px-5 btn-md">Reset</button>
                                                                 </div>
-                                                                {err && <spane>Somthing went wrong</spane>
-                                                                }
+                                                                {err && <spane className="mx-2">Somthing went wrong</spane>}
+
+
 
                                                             </form>
                                                             <div className='text-center mt-4'>
